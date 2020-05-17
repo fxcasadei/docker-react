@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t fxcasadei/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run fxcasadei/docker-react npm run test -- --coverage
